@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/lib/utils.ts", "src/helpers/createBlob.ts", "src/helpers/getEnvVariables.js", "src/components/error/ErrorBoundary.js", "src/app/actions/deleteBlob.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/lib/utils.ts", "src/helpers/createBlob.ts", "src/helpers/getEnvVariables.js", "src/components/error/ErrorBoundary.js", "src/app/actions/deleteBlob.js", "src/app/actions/uploadBlob.js", "src/app/layout.jsx", "src/app/page.jsx"],
   "exclude": ["node_modules"]
 }
