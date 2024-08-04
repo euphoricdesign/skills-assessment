@@ -7,18 +7,15 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Actualiza el estado para mostrar la UI de repuesto
     return { hasError: true, error };
   }
 
   componentDidCatch(error, errorInfo) {
-    // Puedes registrar el error en un servicio de reporte de errores
     console.error("ErrorBoundary caught an error", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      // Puedes renderizar cualquier UI de repuesto
       return (
         <div className="error-boundary">
           <h1>Algo salió mal.</h1>
