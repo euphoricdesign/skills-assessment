@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Skills assessment
+
+## Overview
+
+This project is a web application that allows uploading files up to 5MB to Vercel's blob storage and making calls to third party APIs at different points in the upload process. It is built using Next.js and focuses on meeting the requirements of a knowledge challenge.
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository: `git clone <https://github.com/your-username/evaluacion-javascript.git`>
+2. Install the dependencies: `npm install`.
+3. Start the development server: `npm run dev` .
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project is organized in the following directories:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `app`: Application pages and actions.
+- `components`: Reusable components
+- `public`: Public files and assets
+- `node_modules`: Dependencies installed via npm
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- Upload files up to 5MB to Vercel blob storage
+- Call third-party APIs at different points in the upload process
+- Display a list of uploaded file links with download option
+- Rename uploaded files
+- Delete uploaded files
+- Display a skeleton while uploading the file list
+- Persist full state when refreshing the page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Requirements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Node.js 14.x
+- npm 6.x
+- Vercel CLI
 
-## Deploy on Vercel
+## Authors
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Merlina Villecco
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Notes
+
+- Third-party API calls are commented out to avoid errors during file upload. Uncomment the corresponding lines to test the functionality.
+- Although the project was started with Next.js, the option to create a project without TypeScript was not selected. Therefore, a `tsconfig.json` file is found in the project, but most of the code is written in JavaScript (.js), except for the `shdcn/ui` components which are in TypeScript.
