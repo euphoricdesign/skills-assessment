@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import RejectModal from './RejectModal';
 import FileList from './FileList';
 import ErrorBoundary from './error/ErrorBoundary';
-import { uploadBlob } from '../app/actions/uploadBlob';
+import { uploadBlob } from '@/app/actions/uploadBlob';
 import { deleteBlob } from '@/app/actions/deleteBlob';
 
-const FileUploadButton = () => {
+const FileUpload = () => {
   const [file, setFile] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [files, setFiles] = useState([]);
@@ -77,24 +77,28 @@ const FileUploadButton = () => {
         return updatedFiles;
       });
     } catch (error) {
-      console.error('Error al eliminar el archivo:', error);
+      console.error('z:', error);
     }
   }, []);
 
 
   return (
     <ErrorBoundary>
-      <div className='file-upload-container'>
-        <input type="file" onChange={handleFileChange} />
-        <Button variant="outline" onClick={handleUpload} disabled={!file || loading}>
+      <div style={{display:'flex', gap:'10px'}}>
+        <div className="file-upload-container">
+          <input type="file" id="file" onChange={handleFileChange} />
+          <label style={{cursor:'pointer'}} htmlFor="file">Select a file</label>
+          
+          <RejectModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+          {error && <div className="error">{error}</div>}
+        </div>
+        <Button className='button' variant="outline" onClick={handleUpload} disabled={!file || loading}>
           {loading ? 'Uploading...' : 'Send'}
         </Button>
-        <RejectModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
-        {error && <div className="error">{error}</div>}
-        <FileList files={files} onRename={handleRename} onDelete={handleDelete} />
       </div>
+      <FileList files={files} onRename={handleRename} onDelete={handleDelete} />
     </ErrorBoundary>
   );
 }
 
-export default FileUploadButton;
+export default FileUpload;
