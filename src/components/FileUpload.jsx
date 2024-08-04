@@ -40,6 +40,7 @@ const FileUpload = () => {
     setError(null);
 
     try {
+      // await fetch("https://example.com/api/upload-start")
       const formData = new FormData();
       formData.append('file', file);
 
@@ -49,8 +50,10 @@ const FileUpload = () => {
       handleUpdateFiles([...files, newFile]);
 
       setFile(null);
+      // await fetch("https://example.com/api/upload-success")
     } catch (error) {
       setError(error.message);
+      // await fetch("https://example.com/api/upload-fail")
     } finally {
       setLoading(false);
     }
