@@ -25,3 +25,4 @@ const RejectModal = ({isOpen, onClose}) => {
 }
 
 export default RejectModal
+
