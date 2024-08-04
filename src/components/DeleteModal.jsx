@@ -14,13 +14,13 @@ const DeleteModal = ({ isOpen, onClose, onDelete }) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Eliminar Archivo</DialogTitle>
+          <DialogTitle>Delete file</DialogTitle>
           <DialogDescription>
-            ¿Estás seguro que quieres eliminar este archivo?
+            Are you sure you want to delete this file?
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button onClick={onDelete}>Delete</Button>
+          <Button className='button-modal' onClick={onDelete}>Delete</Button>
           <Button variant="outline" onClick={onClose}>Cancel</Button>
         </DialogFooter>
       </DialogContent>

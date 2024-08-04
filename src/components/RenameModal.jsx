@@ -21,9 +21,9 @@ const RenameModal = ({ isOpen, onClose, onSave, initialName }) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Renombrar Archivo</DialogTitle>
+          <DialogTitle>Rename File</DialogTitle>
           <DialogDescription>
-            Introduce el nuevo nombre para el archivo.
+            Enter the new name for the file.
           </DialogDescription>
         </DialogHeader>
         <Input 
@@ -32,7 +32,7 @@ const RenameModal = ({ isOpen, onClose, onSave, initialName }) => {
           onChange={(e) => setNewName(e.target.value)} 
         />
         <DialogFooter>
-          <Button onClick={handleSave}>Save</Button>
+          <Button className='button-modal' onClick={handleSave}>Save</Button>
           <Button variant="outline" onClick={onClose}>Cancel</Button>
         </DialogFooter>
       </DialogContent>
