@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SlPencil, SlTrash } from "react-icons/sl";
+import { BsDownload } from "react-icons/bs";
 import { Button } from "@/components/ui/button";
 import RenameModal from './RenameModal';
 import DeleteModal from './DeleteModal';
@@ -39,6 +40,20 @@ const FileList = ({ files, onRename, onDelete }) => {
     setIsDeleteModalOpen(false);
   };
 
+  const handleDownload = (file) => {
+    fetch(file.url)
+      .then(response => response.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = file.name;
+        a.click();
+        URL.revokeObjectURL(url);
+      })
+      .catch(error => console.error('Error al descargar el archivo:', error));
+  };
+
   if (loading) {
     return <FileListSkeleton files={files} />;
   }
@@ -58,6 +73,9 @@ const FileList = ({ files, onRename, onDelete }) => {
           </Button>
           <Button onClick={() => handleDeleteClick(file)} className="delete-button">
             <SlTrash />
+          </Button>
+          <Button onClick={() => handleDownload(file)} className="download-button">
+            <BsDownload />
           </Button>
         </div>
         ))
