@@ -2,8 +2,8 @@
 
 import { put } from '@vercel/blob';
 
-export async function uploadBlob(formData: FormData) {
-  const file = formData.get('file') as File;
+export async function uploadBlob(formData) {
+  const file = formData.get('file');
   
   if (!file) {
     throw new Error('No file provided');
